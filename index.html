@@ -1,19 +1,167 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>My web page</title>
-<style>
-h1{
-  color:red;
-}
-p{
-  color:blue;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn With Us</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    nav {
+      background: #1e40af;
+      text-align: center;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 15px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px #ccc;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #16a34a;
+    }
+  </style>
 </head>
+
 <body>
-<h1> Mohd Sahil</h1>
-<p>This is a pragrah</p>
+
+  <header>
+    <h1>📚 Learn With Us</h1>
+    <p>Simple learning for students</p>
+  </header>
+
+  <nav>
+    <a href="#lesson">Lesson</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+
+  <div class="container">
+
+    <section class="card" id="lesson">
+      <h2>🌐 What is HTML?</h2>
+      <br>
+
+      <p>
+        HTML stands for <b>HyperText Markup Language</b>.
+        It is used to create the structure of a webpage.
+      </p>
+
+      <br>
+
+      <h3>Example:</h3>
+
+      <pre>
+&lt;h1&gt;Hello Students!&lt;/h1&gt;
+&lt;p&gt;Welcome to our website.&lt;/p&gt;
+      </pre>
+    </section>
+
+    <section class="card" id="quiz">
+      <h2>📝 Quick Quiz</h2>
+      <br>
+
+      <p><b>What does HTML stand for?</b></p>
+
+      <br>
+
+      <label>
+        <input type="radio" name="answer" value="wrong">
+        Hyper Trainer Markup Language
+      </label>
+      <br><br>
+
+      <label>
+        <input type="radio" name="answer" value="correct">
+        HyperText Markup Language
+      </label>
+      <br><br>
+
+      <label>
+        <input type="radio" name="answer" value="wrong">
+        HighText Machine Language
+      </label>
+
+      <br>
+
+      <button onclick="checkAnswer()">Check Answer</button>
+
+      <p id="result"></p>
+    </section>
+
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const answer = document.querySelector(
+        'input[name="answer"]:checked'
+      );
+
+      const result = document.getElementById("result");
+
+      if (!answer) {
+        result.style.color = "red";
+        result.textContent = "Please select an answer.";
+      } 
+      else if (answer.value === "correct") {
+        result.style.color = "green";
+        result.textContent = "🎉 Correct! Great job!";
+      } 
+      else {
+        result.style.color = "red";
+        result.textContent = "❌ Incorrect. Try again!";
+      }
+    }
+  </script>
 
 </body>
 </html>
